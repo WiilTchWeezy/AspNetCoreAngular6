@@ -28,7 +28,7 @@ namespace CoreAngular6
             services.AddMvc();
             services.AddSpaStaticFiles(configuration =>
             {
-                configuration.RootPath = "AngularNetCore/dist";
+                configuration.RootPath = "ClientApp/dist";
             });
         }
 
@@ -44,9 +44,10 @@ namespace CoreAngular6
             app.UseHttpsRedirection();
 
             app.UseMvc();
+
             app.UseSpa(spa =>
             {
-                spa.Options.SourcePath = "AngularNetCore";
+                spa.Options.SourcePath = "ClientApp";
                 if (env.IsDevelopment())
                 {
                     spa.UseAngularCliServer(npmScript: "start");
